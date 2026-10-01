@@ -1,0 +1,8 @@
+{
+  "name": "quiz-amigos-criador",
+  "version": "5.0.0",
+  "description": "Quiz de amigos com perguntas sobre o criador",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}

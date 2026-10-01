@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz Amigos — Quem conhece o criador?</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="container">
+  <header class="hero">
+    <div class="badge">QUIZ DE AMIGOS</div>
+    <h1>Quem conhece melhor o <span>criador?</span></h1>
+    <p>O criador não precisa responder nada. Ele cria o quiz, manda o código e depois avalia as respostas dos amigos.</p>
+  </header>
+  <div id="toast" class="toast hidden"></div>
+
+  <section id="home" class="grid">
+    <div class="card">
+      <h2>🎯 Criar quiz</h2>
+      <p>Digite seu nome. O site sorteia 50 perguntas sobre você e já cria o quiz. <b>Você não precisa responder as perguntas.</b></p>
+      <label>Nome do criador</label><input id="creatorName" maxlength="40" placeholder="Ex.: José">
+      <button id="createBtn">Criar quiz</button>
+    </div>
+    <div class="card">
+      <h2>👥 Participar</h2>
+      <p>Entre com o código e tente adivinhar as respostas do criador.</p>
+      <label>Código do quiz</label><input id="joinCode" maxlength="6" placeholder="Ex.: AB7K2P" autocomplete="off">
+      <label>Seu nome</label><input id="participantName" maxlength="40" placeholder="Ex.: João">
+      <button id="joinBtn">Entrar no quiz</button>
+    </div>
+    <div class="card">
+      <h2>🔐 Painel do criador</h2>
+      <p>Use o código e o PIN para ver os participantes e avaliar cada resposta.</p>
+      <label>Código do quiz</label><input id="creatorCode" maxlength="6" placeholder="Código" autocomplete="off">
+      <label>PIN do criador</label><input id="creatorPin" maxlength="6" inputmode="numeric" placeholder="6 dígitos" autocomplete="off">
+      <button id="creatorLoginBtn">Abrir painel</button>
+    </div>
+  </section>
+
+  <section id="created" class="card hidden">
+    <div class="success">✅ Quiz criado!</div>
+    <h2>Mande o código para seus amigos</h2>
+    <div class="codeBox"><div><small>CÓDIGO</small><strong id="createdCode"></strong></div><div><small>PIN DO CRIADOR</small><strong id="createdPin"></strong></div></div>
+    <p class="muted">Os amigos usam somente o código. O PIN é só seu e serve para abrir o painel e avaliar.</p>
+    <button id="openCreatorAfterCreateBtn">Abrir meu painel</button>
+    <button class="secondary" id="homeAfterCreateBtn">Voltar ao início</button>
+  </section>
+
+  <section id="participantAnswers" class="card hidden">
+    <div class="sectionHead"><div><div class="badge">PARTICIPANTE</div><h2 id="participantTitle">Adivinhe o criador</h2><p id="participantIntro"></p></div><div class="progressBox" id="participantProgress">0/50</div></div>
+    <div id="participantQuestions" class="questions"></div>
+    <button id="submitParticipantBtn">Enviar 50 respostas</button>
+  </section>
+
+  <section id="participantResult" class="card hidden">
+    <div class="success">✅ Enviado!</div>
+    <h2 id="resultTitle"></h2>
+    <div class="scoreBig"><span id="resultScore">0</span><small>pontos</small></div>
+    <p id="resultStatus"></p>
+    <div id="resultDetails"></div>
+    <button class="secondary" id="resultHomeBtn">Voltar ao início</button>
+  </section>
+
+  <section id="creatorPanel" class="hidden">
+    <div class="card">
+      <div class="sectionHead"><div><div class="badge">PAINEL DO CRIADOR</div><h2 id="panelTitle"></h2><p>Você só precisa avaliar. Não existe etapa para você responder.</p></div><button class="secondary small" id="panelRefreshBtn">Atualizar</button></div>
+      <div id="participantList" class="participantList"></div>
+    </div>
+    <div id="evaluationCard" class="card hidden">
+      <div class="sectionHead"><div><div class="badge">AVALIAÇÃO</div><h2 id="evaluationTitle"></h2><p>Escolha uma das 10 categorias para cada resposta.</p></div><div class="scorePill"><span id="evalScore">0</span> pts</div></div>
+      <div id="evaluationQuestions" class="evaluationQuestions"></div>
+    </div>
+  </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
